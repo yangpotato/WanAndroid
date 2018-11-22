@@ -12,7 +12,7 @@ public abstract class BaseRootActivity<T extends AbstractPresenter> extends Simp
     protected T mPresenter;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
