@@ -19,10 +19,15 @@ public abstract class SimpleActivity extends SupportActivity {
         setContentView(getLayoutId());
         unbinder = ButterKnife.bind(this);
         activity = this;
+        initActivityComponent();
+        initInject();
         onViewCreated();
         initToolbar();
-        initEventAndData();
+        initData();
+        initUI();
     }
+
+    protected abstract void initActivityComponent();
 
     @Override
     protected void onDestroy() {
@@ -47,7 +52,15 @@ public abstract class SimpleActivity extends SupportActivity {
     /**
      * 初始化
      */
-    protected abstract void initEventAndData();
+    protected abstract void initUI();
+    /**
+     * 初始化
+     */
+    protected abstract void initData();
+    /**
+     * Dagger依赖注入
+     */
+    protected abstract void initInject();
 
 
     /**

@@ -37,8 +37,13 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void initEventAndData() {
-        super.initEventAndData();
+    protected void initData() {
 
     }
+
+    @Override
+    protected void initInject() {
+
+    }
+
 }

@@ -21,7 +21,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends BaseRootActi
     private int currentState = NORMAL_STATE;
 
     @Override
-    protected void initEventAndData() {
+    protected void initUI() {
         mNormalView = findViewById(R.id.normal);
         if(mNormalView == null){
             throw new IllegalStateException(
