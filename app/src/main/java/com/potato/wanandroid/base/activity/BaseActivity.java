@@ -21,31 +21,33 @@ public abstract class BaseActivity<T extends BasePresenter> extends BaseRootActi
     private int currentState = NORMAL_STATE;
 
     @Override
-    protected void initUI() {
+    protected void initViewStatu() {
         mNormalView = findViewById(R.id.normal);
-        if(mNormalView == null){
-            throw new IllegalStateException(
-                    "The subclass of RootActivity must contain a View named 'mNormalView'.");
-        }
-        if (!(mNormalView.getParent() instanceof ViewGroup)) {
-            throw new IllegalStateException(
-                    "mNormalView's ParentView should be a ViewGroup.");
-        }
-        ViewGroup mParent = (ViewGroup) mNormalView.getParent();
-        View.inflate(this, R.layout.loading_view, mParent);
-        View.inflate(this, R.layout.error_view, mParent);
-        mLoadingView = findViewById(R.id.loading_view);
-        mErrorView = findViewById(R.id.error_view);
-        mErrorView.findViewById(R.id.btn_reload).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                reload();
+        if(mNormalView != null) {
+            if (mNormalView == null) {
+                throw new IllegalStateException(
+                        "The subclass of RootActivity must contain a View named 'mNormalView'.");
             }
-        });
-        mLottieAnimationView = mLoadingView.findViewById(R.id.animation_view);
-        mErrorView.setVisibility(View.GONE);
-        mLoadingView.setVisibility(View.VISIBLE);
-        mNormalView.setVisibility(View.GONE);
+            if (!(mNormalView.getParent() instanceof ViewGroup)) {
+                throw new IllegalStateException(
+                        "mNormalView's ParentView should be a ViewGroup.");
+            }
+            ViewGroup mParent = (ViewGroup) mNormalView.getParent();
+            View.inflate(this, R.layout.loading_view, mParent);
+            View.inflate(this, R.layout.error_view, mParent);
+            mLoadingView = findViewById(R.id.loading_view);
+            mErrorView = findViewById(R.id.error_view);
+            mErrorView.findViewById(R.id.btn_reload).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    reload();
+                }
+            });
+            mLottieAnimationView = mLoadingView.findViewById(R.id.animation_view);
+            mErrorView.setVisibility(View.GONE);
+            mLoadingView.setVisibility(View.VISIBLE);
+            mNormalView.setVisibility(View.GONE);
+        }
     }
 
     @Override

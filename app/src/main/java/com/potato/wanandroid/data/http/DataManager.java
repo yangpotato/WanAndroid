@@ -1,27 +1,23 @@
 package com.potato.wanandroid.data.http;
 
-import android.content.Context;
-import android.database.Observable;
 
-import com.potato.wanandroid.data.entity.BaseResponse;
 import com.potato.wanandroid.data.entity.main.ArticleEntity;
+import com.potato.wanandroid.data.entity.main.LoginEntity;
+
+import io.reactivex.Observable;
 
 public class DataManager {
-    private ApiServer apiServer;
-    private static DataManager mDataManager;
+    private ApiServer mApiServer;
 
-    public static DataManager getInstance(){
-        if(mDataManager == null){
-            mDataManager = new DataManager();
-        }
-        return mDataManager;
-    }
-
-    public DataManager() {
-        apiServer = RetrofitHelper.getInstance().getApiServer();
+    public DataManager(ApiServer apiServer) {
+        this.mApiServer = apiServer;;
     }
 
     public Observable<BaseResponse<ArticleEntity>> getMainArticle(int page){
-        return apiServer.getMainArticle(page);
+        return mApiServer.getMainArticle(page);
+    }
+
+    public Observable<BaseResponse<LoginEntity>> login(String username, String password) {
+        return mApiServer.login(username, password);
     }
 }

@@ -15,7 +15,7 @@ import com.potato.wanandroid.utils.CommonUtils;
 
 public abstract class BaseRootActivity<T extends AbstractPresenter> extends SimpleActivity implements AbstractView{
     protected T mPresenter;
-    private ActivityComponent activityComponent;
+    protected ActivityComponent mActivityComponent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,9 +40,8 @@ public abstract class BaseRootActivity<T extends AbstractPresenter> extends Simp
 
     @Override
     protected void initActivityComponent() {
-        activityComponent = DaggerActivityComponent.builder()
+        mActivityComponent = DaggerActivityComponent.builder()
                 .activityModule(new ActivityModule(this))
-                .applicationComponent(MyApplaction.getInstance().getApplicationComponent())
                 .build();
     }
 

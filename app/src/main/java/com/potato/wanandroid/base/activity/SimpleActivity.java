@@ -24,6 +24,7 @@ public abstract class SimpleActivity extends SupportActivity {
         onViewCreated();
         initToolbar();
         initData();
+        initViewStatu();
         initUI();
     }
 
@@ -43,11 +44,20 @@ public abstract class SimpleActivity extends SupportActivity {
      * @return 布局ID
      */
     protected abstract int getLayoutId();
+    /**
+     * Dagger依赖注入
+     */
+    protected abstract void initInject();
 
     /**
      * 初始化toolbar
      */
     protected abstract void initToolbar();
+
+    /**
+     * 初始化布局状态
+     */
+    protected abstract void initViewStatu();
 
     /**
      * 初始化
@@ -57,10 +67,6 @@ public abstract class SimpleActivity extends SupportActivity {
      * 初始化
      */
     protected abstract void initData();
-    /**
-     * Dagger依赖注入
-     */
-    protected abstract void initInject();
 
 
     /**

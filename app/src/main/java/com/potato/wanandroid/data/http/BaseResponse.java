@@ -1,4 +1,4 @@
-package com.potato.wanandroid.data.entity;
+package com.potato.wanandroid.data.http;
 
 public class BaseResponse<T> {
     public static final int SUCCESS = 0;
