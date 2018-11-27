@@ -12,8 +12,12 @@ import com.potato.wanandroid.dagger.component.DaggerActivityComponent;
 import com.potato.wanandroid.dagger.component.DaggerApplicationComponent;
 import com.potato.wanandroid.dagger.module.ActivityModule;
 import com.potato.wanandroid.utils.CommonUtils;
+import com.potato.wanandroid.utils.LogUtil;
+
+import javax.inject.Inject;
 
 public abstract class BaseRootActivity<T extends AbstractPresenter> extends SimpleActivity implements AbstractView{
+    @Inject
     protected T mPresenter;
     protected ActivityComponent mActivityComponent;
 
@@ -42,12 +46,14 @@ public abstract class BaseRootActivity<T extends AbstractPresenter> extends Simp
     protected void initActivityComponent() {
         mActivityComponent = DaggerActivityComponent.builder()
                 .activityModule(new ActivityModule(this))
+                .applicationComponent(MyApplaction.getInstance().getApplicationComponent())
                 .build();
     }
 
     @Override
     public void showMessage(String msg) {
         CommonUtils.showMessage(this, msg);
+        LogUtil.v(msg);
     }
 
     @Override

@@ -36,6 +36,7 @@ public class MyApplaction extends Application {
                 .applicationModule(new ApplicationModule(this))
                 .httpModule(new HttpModule(Constants.BASE_URL))
                 .build();
+//        applicationComponent.inject(this);
     }
 
     public static synchronized MyApplaction getInstance(){

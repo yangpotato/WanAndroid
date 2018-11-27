@@ -1,9 +1,8 @@
 package com.potato.wanandroid.base.presenter;
 
 import com.potato.wanandroid.base.view.AbstractView;
-import com.potato.wanandroid.data.http.DataManager;
+import com.potato.wanandroid.data.DataManager;
 
-import io.reactivex.CompletableObserver;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 

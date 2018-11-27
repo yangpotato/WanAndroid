@@ -2,8 +2,8 @@ package com.potato.wanandroid.dagger.module;
 
 import com.potato.wanandroid.BuildConfig;
 import com.potato.wanandroid.data.http.ApiServer;
-import com.potato.wanandroid.data.http.DataManager;
-import com.potato.wanandroid.data.http.RetrofitHelper;
+import com.potato.wanandroid.data.DataManager;
+import com.potato.wanandroid.data.http.HttpHelper;
 import com.potato.wanandroid.utils.LogUtil;
 
 import java.util.concurrent.TimeUnit;
@@ -15,6 +15,8 @@ import dagger.Provides;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class HttpModule {
@@ -24,16 +26,17 @@ public class HttpModule {
         this.baseUrl = baseUrl;
     }
 
-    @Singleton
-    @Provides
-    public ApiServer provideApiServer(Retrofit retrofit){
-        return retrofit.create(ApiServer.class);
-    }
 
     @Singleton
     @Provides
     public DataManager provideDataManager(ApiServer apiServer){
         return new DataManager(apiServer);
+    }
+
+//    @Singleton
+    @Provides
+    public ApiServer provideApiServer(Retrofit retrofit){
+        return retrofit.create(ApiServer.class);
     }
 
     @Singleton
@@ -75,6 +78,8 @@ public class HttpModule {
     private Retrofit createRetrofit(Retrofit.Builder builder, OkHttpClient client) {
         return builder
                 .baseUrl(baseUrl)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
     }

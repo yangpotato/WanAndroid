@@ -9,17 +9,17 @@ import com.potato.wanandroid.contract.login.LoginContract;
 import com.potato.wanandroid.data.entity.main.LoginEntity;
 import com.potato.wanandroid.data.http.BaseObserver;
 import com.potato.wanandroid.data.http.BaseResponse;
-import com.potato.wanandroid.data.http.DataManager;
-import com.potato.wanandroid.utils.RxUtil;
+import com.potato.wanandroid.data.DataManager;
 
-import io.reactivex.Observer;
+import javax.inject.Inject;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginContract.Presenter {
     private DataManager mDataManager;
 
+    @Inject
     public LoginPresenter(DataManager dataManager) {
         super(dataManager);
         mDataManager = dataManager;
