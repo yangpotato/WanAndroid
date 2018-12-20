@@ -1,9 +1,10 @@
 package com.potato.wanandroid.dagger.module;
 
+import android.util.Log;
+
 import com.potato.wanandroid.BuildConfig;
-import com.potato.wanandroid.data.http.ApiServer;
 import com.potato.wanandroid.data.DataManager;
-import com.potato.wanandroid.data.http.HttpHelper;
+import com.potato.wanandroid.data.http.ApiServer;
 import com.potato.wanandroid.utils.LogUtil;
 
 import java.util.concurrent.TimeUnit;
@@ -16,6 +17,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
@@ -65,13 +67,15 @@ public class HttpModule {
                 @Override
                 public void log(String message) {
                     LogUtil.httpV(message);
+                    Log.v("LOGHTTP", message);
                 }
-            });
+            }).setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(loggingInterceptor);
         }
         builder.writeTimeout(20, TimeUnit.SECONDS);
         builder.connectTimeout(20, TimeUnit.SECONDS);
         builder.readTimeout(20, TimeUnit.SECONDS);
+//        builder.addInterceptor(new TokenInterceptor());
         return builder.build();
     }
 

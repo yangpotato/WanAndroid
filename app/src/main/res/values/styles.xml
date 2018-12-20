@@ -10,4 +10,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <style name="TabLayoutTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">13dp</item>
+    </style>
+
 </resources>

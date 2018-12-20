@@ -1,7 +1,6 @@
 package com.potato.wanandroid.base.activity;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 
 import com.potato.wanandroid.app.MyApplaction;
@@ -9,7 +8,6 @@ import com.potato.wanandroid.base.presenter.AbstractPresenter;
 import com.potato.wanandroid.base.view.AbstractView;
 import com.potato.wanandroid.dagger.component.ActivityComponent;
 import com.potato.wanandroid.dagger.component.DaggerActivityComponent;
-import com.potato.wanandroid.dagger.component.DaggerApplicationComponent;
 import com.potato.wanandroid.dagger.module.ActivityModule;
 import com.potato.wanandroid.utils.CommonUtils;
 import com.potato.wanandroid.utils.LogUtil;

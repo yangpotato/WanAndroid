@@ -5,7 +5,7 @@ import com.orhanobut.logger.Logger;
 public class LogUtil {
 
     public synchronized static void httpV(String msg) {
-        Logger.t("HTTPLOG").json(msg);
+        Logger.t("HTTPLOG").v(msg);
     }
 
     public synchronized static void v(String msg) {

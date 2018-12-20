@@ -4,11 +4,9 @@ import android.app.Activity;
 
 import com.potato.wanandroid.dagger.Applicaton_Annotation;
 import com.potato.wanandroid.dagger.module.ActivityModule;
-import com.potato.wanandroid.data.DataManager;
+import com.potato.wanandroid.ui.MainActivity;
 import com.potato.wanandroid.ui.login.LoginActivity;
 
-import javax.inject.Scope;
-import javax.inject.Singleton;
 
 import dagger.Component;
 
@@ -17,5 +15,7 @@ import dagger.Component;
 public interface ActivityComponent {
     Activity getActivity();
     void inject(LoginActivity activity);
+//    void inject(MainActivity activity);
+
 
 }

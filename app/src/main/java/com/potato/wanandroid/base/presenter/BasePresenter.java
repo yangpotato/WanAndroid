@@ -1,5 +1,6 @@
 package com.potato.wanandroid.base.presenter;
 
+
 import com.potato.wanandroid.base.view.AbstractView;
 import com.potato.wanandroid.data.DataManager;
 
@@ -9,10 +10,10 @@ import io.reactivex.disposables.Disposable;
 public class BasePresenter<T extends AbstractView> implements AbstractPresenter<T> {
     protected T mView;
     private CompositeDisposable compositeDisposable;
-    private DataManager dataManager;
+    private DataManager mDataManager;
 
     public BasePresenter(DataManager dataManager) {
-        this.dataManager = dataManager;
+        this.mDataManager = dataManager;
     }
 
     @Override
@@ -30,7 +31,7 @@ public class BasePresenter<T extends AbstractView> implements AbstractPresenter<
 
     @Override
     public void addRxBindingSubscribe(Disposable disposable) {
-        compositeDisposable.add(disposable);
+        addSubscribe(disposable);
     }
 
 

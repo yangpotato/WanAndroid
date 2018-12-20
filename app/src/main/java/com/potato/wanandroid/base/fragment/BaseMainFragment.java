@@ -14,15 +14,15 @@ public class BaseMainFragment extends SupportFragment {
     protected OnFragmentOpenDrawerListener mOnFragmentOpenDrawerListener;
 
     protected void initToolbarNav(Toolbar toolbar){
-        toolbar.setNavigationIcon(R.drawable.ic_dehaze_black_24dp);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mOnFragmentOpenDrawerListener != null){
-                    mOnFragmentOpenDrawerListener.onOpenDrawer();
-                }
-            }
-        });
+//        toolbar.setNavigationIcon(R.drawable.ic_dehaze_black_24dp);
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(mOnFragmentOpenDrawerListener != null){
+//                    mOnFragmentOpenDrawerListener.onOpenDrawer();
+//                }
+//            }
+//        });
     }
 
     @Override

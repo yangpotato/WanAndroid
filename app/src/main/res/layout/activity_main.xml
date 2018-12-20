@@ -5,14 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ui.MainActivity"
     tools:openDrawer="start">
-
-    <FrameLayout
-        android:id="@+id/normal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </FrameLayout>
+    <include layout="@layout/activity_appbar"/>
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation"
         android:layout_width="wrap_content"

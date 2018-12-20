@@ -12,6 +12,11 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ApiServer {
+    /**
+     * 首页文章
+     * @param page 页码
+     * @return
+     */
     @GET("article/list/{page}/json")
     Observable<BaseResponse<ArticleEntity>> getMainArticle(@Path("page") int page);
 

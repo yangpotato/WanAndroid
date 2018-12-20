@@ -19,9 +19,10 @@ public class DataManager {
         this.mApiServer = apiServer;;
     }
 
-//    public Observable<BaseResponse<ArticleEntity>> getMainArticle(int page){
-//        return mApiServer.getMainArticle(page);
-//    }
+    //首页文章
+    public Observable<BaseResponse<ArticleEntity>> getMainArticle(int page){
+        return mApiServer.getMainArticle(page);
+    }
 
     public Observable<BaseResponse<LoginEntity>> login(String username, String password) {
         return mApiServer.login(username, password);
