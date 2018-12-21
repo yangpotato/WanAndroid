@@ -13,6 +13,6 @@ import dagger.Component;
 @Component(dependencies = ApplicationComponent.class, modules = FragmentModule.class)
 public interface FragmentComponent {
     Activity getActivity();
-//    void inject(HomeFragment fragment);
+    void inject(HomeFragment fragment);
 
 }

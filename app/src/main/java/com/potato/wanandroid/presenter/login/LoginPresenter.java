@@ -44,12 +44,13 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new BaseObserver<BaseResponse<LoginEntity>>(mView) {
+
                     @Override
-                    public void onNext(BaseResponse<LoginEntity> entity) {
-                        if(entity.getErrorCode() == BaseResponse.SUCCESS){
-                            mView.loginSuccess(entity.getData());
+                    public void onSuccess(BaseResponse<LoginEntity> entityBaseResponse) {
+                        if(entityBaseResponse.getErrorCode() == BaseResponse.SUCCESS){
+                            mView.loginSuccess(entityBaseResponse.getData());
                         }else{
-                            mView.showMessage(entity.getErrorMsg());
+                            mView.showMessage(entityBaseResponse.getErrorMsg());
                         }
                     }
                 });
