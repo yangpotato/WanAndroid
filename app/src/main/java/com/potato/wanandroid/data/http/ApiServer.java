@@ -2,7 +2,10 @@ package com.potato.wanandroid.data.http;
 
 
 import com.potato.wanandroid.data.entity.main.ArticleEntity;
+import com.potato.wanandroid.data.entity.main.BannerEntity;
 import com.potato.wanandroid.data.entity.main.LoginEntity;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -19,6 +22,13 @@ public interface ApiServer {
      */
     @GET("article/list/{page}/json")
     Observable<BaseResponse<ArticleEntity>> getMainArticle(@Path("page") int page);
+
+    /**
+     * 首页banner
+     * @return
+     */
+    @GET("banner/json")
+    Observable<BaseResponse<List<BannerEntity>>> getHomeBanner();
 
     @POST("user/login")
     @FormUrlEncoded

@@ -61,7 +61,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends BaseRootActi
 //            if(getSupportActionBar() != null) {
 //                getSupportActionBar().setDisplayShowTitleEnabled(false);
 //            }
-//            mToolbar.setNavigationIcon(R.mipmap.nav_back_2);
+            mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
             mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

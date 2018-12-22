@@ -1,6 +1,8 @@
 package com.potato.wanandroid.app;
 
 public class Constants {
+    public static final String ARTICLE_DATA = "article";
+    public static final String BANNER_DATA = "banner";
     public static String BASE_URL = "http://www.wanandroid.com/";
 
 

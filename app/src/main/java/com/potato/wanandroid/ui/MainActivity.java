@@ -58,6 +58,7 @@ public class MainActivity extends BaseActivity {
                 getString(R.string.project));
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+        viewPager.setOffscreenPageLimit(3);
     }
 
     @Override

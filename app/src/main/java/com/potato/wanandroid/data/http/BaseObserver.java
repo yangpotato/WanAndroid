@@ -47,6 +47,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
             mView.cancelProgress();
             mView.showMessage("网络错误");
         }
+        mView.showError();
     }
 
     @Override
